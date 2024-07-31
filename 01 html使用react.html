@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Hello World</title>
+    <!--react 和 react-dom cdn引入-->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <!--转化jsx语法 es6转化es5-->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin></script>
+</head>
+<body>
+    <!--容器-->
+    <div id="root"></div>
+    <!--对下面代码进行babel转换-->
+    <script type="text/babel">
+
+        function MyApp() {
+            let text = "Hello, world!";
+            const changText = () => {
+                text = "Hello, React!";
+                console.log(text);
+            }
+            return <h1 onClick={changText}>{text}</h1>;
+        }
+
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+        root.render(<MyApp/>);
+
+    </script>
+</body>
+</html>
