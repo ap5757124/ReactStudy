@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <title>Hello World</title>
+  <!--react 和 react-dom cdn引入-->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+  <!--转化jsx语法 es6转化es5-->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin></script>
+</head>
+<body>
+<!--容器-->
+<div id="root"></div>
+<!--对下面代码进行babel转换-->
+<script type="text/babel">
+
+    class MyApp extends React.Component {
+
+        constructor() {
+            super();
+            // state 属性 存储动态变化的数据
+            this.state = {
+                text: "Hello, world!"
+            }
+        }
+
+        changText() {
+            // text = "Hello, React!";
+            console.log('changeText');
+        }
+
+        //必须的render方法
+        render() {
+						return (
+								<div>
+									<h1 onClick={this.changText}>{this.state.text}</h1>
+                </div>
+            )
+        }
+    }
+
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    root.render(<MyApp/>);
+
+</script>
+</body>
+</html>
